@@ -1,0 +1,1231 @@
+/*
+ * Author       : rangaprasath.sr.2024.cse1709
+ * Generated on : 11-Nov-2026 08:27:37
+ * Version      : 1.0
+ */
+ application "Recruitment and Job Application Management LC-05"
+ {
+ 	date format = "dd-MMM-yyyy"
+ 	time zone = "Asia/Kolkata"
+ 	time format = "24-hr"
+
+ 	forms
+	{
+		form Employees
+		{
+			success message = "Employee Added Successfully"
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			Department
+			(
+    			type = text
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Employee_Name
+			(
+    			type = name
+				displayname = "Employee Name"
+     			prefix
+     			(
+	     			 type = prefix
+	     			 displayname ="Prefix"
+	     			 visibility = false
+	     			 value = {"Mr.","Mrs.","Ms."}
+     			) 
+     			first_name
+     			(
+	     			 type = first_name
+	     			 displayname ="First Name"
+     			) 
+     			last_name
+     			(
+	     			 type = last_name
+	     			 displayname ="Last Name"
+     			) 
+     			suffix
+     			(
+	     			 type = suffix
+	     			 displayname ="Suffix"
+	     			 visibility = false
+     			) 
+	 			row = 1
+	 			column = 1   
+				width = medium
+				personal data = true
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		form Job_Application_Form
+		{
+			displayname = "Job Application Form"
+			success message = "Job Application Added Successfully"
+			Section
+			(
+				type = section
+				displayname = "Personal Details"
+				visibility = true
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			must have Candidate_Name
+			(
+    			type = name
+				displayname = "Candidate Name"
+     			prefix
+     			(
+	     			 type = prefix
+	     			 displayname ="Prefix"
+	     			 visibility = false
+	     			 value = {"Mr.","Mrs.","Ms."}
+     			) 
+     			first_name
+     			(
+	     			 type = first_name
+	     			 displayname ="First Name"
+     			) 
+     			last_name
+     			(
+	     			 type = last_name
+	     			 displayname ="Last Name"
+     			) 
+     			suffix
+     			(
+	     			 type = suffix
+	     			 displayname ="Suffix"
+	     			 visibility = false
+     			) 
+	 			row = 2
+	 			column = 1   
+				width = medium
+				personal data = true
+			)
+			Previous_Employment_History
+			(
+				type = grid
+				displayname = "Previous Employment History"
+				Company_Name
+				(
+    				type = text
+					displayname = "Company Name"
+					width = medium
+				)
+				Designation
+				(
+    				type = text
+					width = medium
+				)
+				Duration_Years
+				(
+					type = number
+					displayname = "Duration Years"
+					width = medium
+				)
+	 			row = 2
+	 			column = 1   
+				width = medium
+			)
+			Current_Address
+			(
+    			type = address
+				displayname = "Current Address"
+     			capture_coordinates = true
+     			adjust_using_map = false
+     			address_line_1
+     			(
+	     			  type = address_line_1
+	     			  displayname = "Address Line 1"
+     			) 
+     			address_line_2
+     			(
+	     			  type = address_line_2
+	     			  displayname = "Address Line 2"
+     			) 
+     			district_city
+     			(
+	     			  type = district_city
+	     			  displayname = "City / District"
+     			) 
+     			state_province
+     			(
+	     			  type = state_province
+	     			  displayname = "State / Province"
+     			) 
+     			postal_Code
+     			(
+	     			  type = postal_Code
+	     			  displayname = "Postal Code"
+     			) 
+     			country
+     			(
+	     			  type = country
+	     			  displayname = "Country"
+     			) 
+     			latitude
+     			(
+	     			  type = latitude
+	     			  displayname = "latitude"
+	     			 visibility = false
+     			) 
+     			longitude
+     			(
+	     			  type = longitude
+	     			  displayname = "longitude"
+	     			 visibility = false
+     			) 
+	 			row = 3
+	 			column = 1   
+				width = medium
+				personal data = true
+			)
+			must have Contact_Number
+			(
+    			type = phonenumber
+				displayname = "Contact Number"
+	 			row = 4
+	 			column = 1   
+				width = medium
+				personal data = true
+			)
+			Candidate_Photo
+			(
+    			type = image
+				displayname = "Candidate Photo"
+				source  = file
+				aspect ratio = original
+				camera = primary
+				show gallery = true
+				switch camera = true
+	 			row = 5
+	 			column = 1   
+				width = medium
+			)
+			Contact_and_Online_Presence
+			(
+				type = section
+				displayname = "Contact and Online Presence"
+				visibility = true
+	 			row = 6
+	 			column = 0   
+				width = medium
+			)
+			must have Email_Address
+			(
+    			type = email
+				displayname = "Email Address"
+	 			row = 7
+	 			column = 1   
+				width = medium
+			)
+			LinkedIn_Profile
+			(
+    			type = text
+				displayname = "LinkedIn Profile"
+	 			row = 8
+	 			column = 1   
+				width = medium
+			)
+			Portfolio_GitHub_URL
+			(
+    			type = url
+				displayname = "Portfolio GitHub URL"
+				enable  linkname
+	 			row = 9
+	 			column = 1   
+				width = medium
+			)
+			Job_and_Experience_Details
+			(
+				type = section
+				displayname = "Job and Experience Details"
+				visibility = true
+	 			row = 10
+	 			column = 0   
+				width = medium
+			)
+			must have Department_Applied_For
+			(
+				type = picklist
+				displayname = "Department Applied For"
+				values = {"Software Development","Data Science","Human Resources","Marketing","Finance","Operations"}
+	 			row = 11
+	 			column = 1   
+				width = medium
+			)
+			must have Employment_Type_Preferred
+			(
+				type = radiobuttons
+				displayname = "Employment Type Preferred"
+				maxchar = 100
+				values = {"Full-Time","Part-Time","Internship"}
+	 			row = 12
+	 			column = 1   
+				width = medium
+			)
+			Years_Of_Experience
+			(
+				type = number
+				displayname = "Years Of Experience"
+	 			row = 13
+	 			column = 1   
+				width = medium
+			)
+			Key_Skills
+			(
+				type = list	
+				displayname = "Key Skills"
+				values = {"Java","React","SQL","Communication"}
+				height = 60px
+	 			row = 14
+	 			column = 1   
+				width = medium
+			)
+			Academic_CGPA
+			(
+				type = decimal
+				displayname = "Academic CGPA"
+	 			row = 15
+	 			column = 1   
+				width = medium
+			)
+			Willing_To_Relocate
+			(
+    			type = checkbox
+				displayname = "Willing To Relocate"
+				initial value = false
+	 			row = 16
+	 			column = 1   
+				width = medium
+			)
+			Referral_Employee_Lookup
+			(
+				type = picklist	
+				displayname = "Referral Employee Lookup"
+				values  = Employees.ID
+    			displayformat = [" " + Employee_Name.prefix + " " + Employee_Name.first_name + " " + Employee_Name.last_name + " " + Employee_Name.suffix]
+				sortorder = ascending
+	 			row = 17
+	 			column = 1   
+				width = medium
+			)
+			Current_Annual_CTC
+			(
+				displayname = "Current Annual CTC"
+				type = INR
+				format = commadotindian
+	 			row = 18
+	 			column = 1   
+				width = medium
+			)
+			Expected_Salary_Hike_Percent
+			(
+    			type = percentage
+				displayname = "Expected Salary Hike Percent"
+	 			row = 19
+	 			column = 1   
+				width = medium
+			)
+			Expected_Annual_CTC
+			(
+				type = decimal
+				displayname = "Expected Annual CTC"
+	 			row = 20
+	 			column = 1   
+				width = medium
+    			Formula_Properties
+    			(
+    						value =  input.Current_Annual_CTC + input.Current_Annual_CTC * input.Expected_Salary_Hike_Percent / 100
+    						visibility = true
+    			)
+			)
+			Available_Joining_Date
+			(
+    			type = date
+				displayname = "Available Joining Date"
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 21
+	 			column = 1   
+				width = medium
+			)
+			Interview_Scheduling_and_Consent
+			(
+				type = section
+				displayname = "Interview Scheduling and Consent"
+				visibility = true
+	 			row = 22
+	 			column = 0   
+				width = medium
+			)
+			Preferred_Interview_Time
+			(
+    			type = time
+				displayname = "Preferred Interview Time"
+				timedisplayoptions = "hh:mm:ss" 
+	 			row = 23
+	 			column = 1   
+				width = medium
+			)
+			Cover_Letter
+			(
+    			type = textarea
+				displayname = "Cover Letter"
+				height = 13px
+	 			row = 24
+	 			column = 1   
+				width = medium
+			)
+			Resume_Upload
+			(
+    			type = upload file
+				displayname = "Resume Upload"
+				browse = local_drive
+	 			row = 25
+	 			column = 1   
+				width = medium
+			)
+			Self_Introduction_Audio
+			(
+     			type = audio
+				displayname = "Self Introduction Audio"
+    			duration=60
+	 			row = 26
+	 			column = 1   
+				width = medium
+			)
+			Video_Resume
+			(
+    			type = video
+				displayname = "Video Resume"
+    			duration=30
+	 			row = 27
+	 			column = 1   
+				width = medium
+			)
+			Candidate_Digital_Signature
+			(
+    			type = signature
+				displayname = "Candidate Digital Signature"
+	 			row = 28
+	 			column = 1   
+				width = medium
+				personal data = true
+			)
+			must have Background_Verification_Consent
+			(
+				type = checkboxes	
+				displayname = "Background Verification Consent"
+				values = {"I consent to background verification if selected"}
+	 			row = 29
+	 			column = 1   
+				width = medium
+			)
+			Application_ID
+			(
+    			type = autonumber
+				displayname = "Application ID"
+				start index = 1
+	 			row = 30
+	 			column = 1   
+				width = medium
+			)
+			Application_Submitted_On
+			(
+    			type = datetime
+				displayname = "Application Submitted On"
+				timedisplayoptions = "hh:mm:ss"
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 31
+	 			column = 1   
+				width = medium
+			)
+			QR_Code
+			(
+				type = qrcode
+				displayname = "Candidate Tracking QR Code"
+				value = "${Application_ID}"
+	 			row = 32
+	 			column = 1   
+				width = medium
+			)
+			Company_Culture_Display
+			(
+    			type = richtext
+				displayname = "Company Culture Display"
+				height = 200px
+				toolbar = enable
+				[
+					style, font-color, background-color, link, bullets-and-numbering, 
+					font-size : {1, 2, 3, 4, 5, 6, 7}
+				]
+	 			row = 33
+	 			column = 1   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+	}
+	reports
+	{
+		default list All_Job_Applications
+		{
+			displayName = "Candidate Application Report"
+			show all rows from Job_Application_Form    
+			(
+				Candidate_Name  as "Candidate Name"
+				Contact_Number as "Contact Number"
+				(
+					displayformat = plainnumber 
+				)
+				Current_Address  as "Current Address"
+	 			(
+	      			enable = Link_to_Map,Show_As_Text
+	 			)
+				Preferred_Interview_Time as "Preferred Interview Time"
+				Employment_Type_Preferred as "Employment Type Preferred"
+				Key_Skills as "Key Skills"
+				Background_Verification_Consent as "Background Verification Consent"
+				Email_Address as "Email Address"
+				Years_Of_Experience as "Years Of Experience"
+				Department_Applied_For as "Department Applied For"
+				Expected_Salary_Hike_Percent as "Expected Salary Hike Percent"
+				Current_Annual_CTC as "Current Annual CTC"
+				Academic_CGPA as "Academic CGPA"
+				Application_Submitted_On as "Application Submitted On"
+				Candidate_Digital_Signature as "Candidate Digital Signature"
+				Resume_Upload as "Resume Upload"
+				Self_Introduction_Audio as "Self Introduction Audio"
+				Video_Resume as "Video Resume"
+				Willing_To_Relocate as "Willing To Relocate"
+				Portfolio_GitHub_URL as "Portfolio GitHub URL"
+				Candidate_Photo as "Candidate Photo"
+				Company_Culture_Display as "Company Culture Display"
+				Application_ID as "Application ID"
+				Expected_Annual_CTC as "Expected Annual CTC"
+				QR_Code as "Candidate Tracking QR Code"
+				Referral_Employee_Lookup as "Referral Employee Lookup"
+				Previous_Employment_History.Company_Name as "Previous Employment History"
+			)
+		}
+		default list All_Employees
+		{
+			displayName = "All Employees"
+			show all rows from Employees    
+			(
+				Employee_Name  as "Employee Name"
+				Department
+			)
+		}
+		spreadsheet Applications_Spreadsheet
+		{
+			displayName = "Applications Spreadsheet"
+			show all rows from Job_Application_Form    
+			(
+				Candidate_Name  as "Candidate Name"
+				Current_Address  as "Current Address"
+	 			(
+	      			enable = Link_to_Map,Show_As_Text
+	 			)
+				Contact_Number as "Contact Number"
+				(
+					displayformat = plainnumber 
+				)
+				Candidate_Photo as "Candidate Photo"
+				Email_Address as "Email Address"
+				LinkedIn_Profile as "LinkedIn Profile"
+				Portfolio_GitHub_URL as "Portfolio GitHub URL"
+				Department_Applied_For as "Department Applied For"
+				Employment_Type_Preferred as "Employment Type Preferred"
+				Years_Of_Experience as "Years Of Experience"
+				Key_Skills as "Key Skills"
+				Academic_CGPA as "Academic CGPA"
+				Willing_To_Relocate as "Willing To Relocate"
+				Referral_Employee_Lookup as "Referral Employee Lookup"
+				Current_Annual_CTC as "Current Annual CTC"
+				Expected_Salary_Hike_Percent as "Expected Salary Hike Percent"
+				Expected_Annual_CTC as "Expected Annual CTC"
+				Available_Joining_Date as "Available Joining Date"
+				Preferred_Interview_Time as "Preferred Interview Time"
+				Cover_Letter as "Cover Letter"
+				Resume_Upload as "Resume Upload"
+				Self_Introduction_Audio as "Self Introduction Audio"
+				Video_Resume as "Video Resume"
+				Candidate_Digital_Signature as "Candidate Digital Signature"
+				Background_Verification_Consent as "Background Verification Consent"
+				Application_ID as "Application ID"
+				Application_Submitted_On as "Application Submitted On"
+				QR_Code as "Candidate Tracking QR Code"
+				Company_Culture_Display as "Company Culture Display"
+			)
+		}
+	}
+	pages
+	{
+		page Recruitment_Dashboard
+		{
+			displayname = "Recruitment Dashboard"
+			Content="<zml    \t\t\n\t\t\n\t\t\n\t\t\n\t\t\n>\n\t<layout>\n\t\n</layout>\n</zml>"
+		}
+	}
+
+
+
+
+		workflow
+		{
+		form
+		{
+			Validate_application as "Validate application"
+			{
+				type =  form
+				form = Job_Application_Form
+
+				record event = on add or edit
+
+				on validate
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											if(input.Years_Of_Experience != null && input.Years_Of_Experience < 0 || input.Years_Of_Experience > 40)
+										{
+											alert "Years of experience must be between 0 and 40.";
+											cancel submit;
+										}
+										if(input.Available_Joining_Date != null && input.Available_Joining_Date < zoho.currentdate)
+										{
+											alert "Available joining date cannot be in the past.";
+											cancel submit;
+										}
+										if(input.Application_Submitted_On == null)
+										{
+											input.Application_Submitted_On = zoho.currenttime;
+										}
+						)
+					}
+				}
+
+			}
+			Send_application_acknowle as "Send application acknowledgement"
+			{
+				type =  form
+				form = Job_Application_Form
+
+				record event = on add
+
+				on success
+				{
+					actions 
+					{
+						sendmail
+						(
+							from : "zoho.adminuserid"
+							to : Email_Address
+							subject : "Application received"
+							message : "<div>Thank you for applying. We have received your job application and our recruitment team will review it. <br></div>"
+						)
+					}
+				}
+
+			}
+			Validate_academic_CGPA as "Validate academic CGPA"
+			{
+				type =  form
+				form = Job_Application_Form
+
+				record event = on add or edit
+
+				on validate
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											if(input.Academic_CGPA != null && input.Academic_CGPA < 0 || input.Academic_CGPA > 10)
+										{
+											alert "CGPA must be between 0 and 10.";
+											cancel submit;
+										}
+						)
+					}
+				}
+
+			}
+		}
+
+
+
+
+
+
+	}
+	share_settings
+	{
+			"Read"
+			{
+				name = "Read"
+				type = Users_Permissions
+				permissions = {Chat:true, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "This profile will have read permission for all components\n"
+			}
+			"Write"
+			{
+				name = "Write"
+				type = Users_Permissions
+				permissions = {Chat:true, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "This profile will have write permission for all components\n"
+			}
+			"Developer"
+			{
+				name = "Developer"
+				type = Developer
+				permissions = {Chat:false, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "Developer Profile\n"
+			}
+			"Administrator"
+			{
+				name = "Administrator"
+				type = Users_Permissions
+				permissions = {Chat:true, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "This profile will have all the permissions.\n"
+			}
+			"Customer"
+			{
+				name = "Customer"
+				type = Customer_Portal
+				permissions = {Chat:true, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "This is the default profile having only add and view permission.\n"
+			}
+			roles
+			{
+				"CEO"
+				{
+					description = "User belonging to this role can access data of all other users."
+				}
+			}
+	}
+
+	customize
+	{
+		icon
+		{
+			text = "RAJ"
+			background color = "theme"
+			foreground color = "#ffffff"
+		}
+	}
+
+	web
+	{
+		forms
+		{
+			form Employees
+			{
+				label placement = left
+			}
+			form Job_Application_Form
+			{
+				label placement = left
+			}
+		}
+		reports
+		{
+			report All_Job_Applications
+			{
+				quickview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Candidate_Name as "Candidate Name"
+								Contact_Number as "Contact Number"
+								Current_Address as "Current Address"
+								Preferred_Interview_Time as "Preferred Interview Time"
+								Employment_Type_Preferred as "Employment Type Preferred"
+								Email_Address as "Email Address"
+								Years_Of_Experience as "Years Of Experience"
+								Department_Applied_For as "Department Applied For"
+								Key_Skills as "Key Skills"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Candidate_Name as "Candidate Name"
+								Contact_Number as "Contact Number"
+								Current_Address as "Current Address"
+								Preferred_Interview_Time as "Preferred Interview Time"
+								Employment_Type_Preferred as "Employment Type Preferred"
+								Key_Skills as "Key Skills"
+								Background_Verification_Consent as "Background Verification Consent"
+								Expected_Salary_Hike_Percent as "Expected Salary Hike Percent"
+								Current_Annual_CTC as "Current Annual CTC"
+								Academic_CGPA as "Academic CGPA"
+								Application_Submitted_On as "Application Submitted On"
+								Candidate_Digital_Signature as "Candidate Digital Signature"
+								Resume_Upload as "Resume Upload"
+								Self_Introduction_Audio as "Self Introduction Audio"
+								Video_Resume as "Video Resume"
+								Willing_To_Relocate as "Willing To Relocate"
+								Portfolio_GitHub_URL as "Portfolio GitHub URL"
+								Candidate_Photo as "Candidate Photo"
+								Company_Culture_Display as "Company Culture Display"
+								Application_ID as "Application ID"
+								Expected_Annual_CTC as "Expected Annual CTC"
+								QR_Code as "Candidate Tracking QR Code"
+								Referral_Employee_Lookup as "Referral Employee Lookup"
+								Previous_Employment_History.Company_Name as "Previous Employment History"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+			report All_Employees
+			{
+				quickview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Employee_Name as "Employee Name"
+								Department
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Employee_Name as "Employee Name"
+								Department
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+			report Applications_Spreadsheet
+			{
+				quickview
+				(
+					layout
+					(
+		 				type = -3
+						datablock1
+						(
+							layout type = -3
+							fields
+							(
+								Candidate_Name as "Candidate Name"
+								Current_Address as "Current Address"
+								Contact_Number as "Contact Number"
+								Candidate_Photo as "Candidate Photo"
+								Email_Address as "Email Address"
+								LinkedIn_Profile as "LinkedIn Profile"
+								Portfolio_GitHub_URL as "Portfolio GitHub URL"
+								Department_Applied_For as "Department Applied For"
+								Employment_Type_Preferred as "Employment Type Preferred"
+								Years_Of_Experience as "Years Of Experience"
+								Key_Skills as "Key Skills"
+								Academic_CGPA as "Academic CGPA"
+								Willing_To_Relocate as "Willing To Relocate"
+								Referral_Employee_Lookup as "Referral Employee Lookup"
+								Current_Annual_CTC as "Current Annual CTC"
+								Expected_Salary_Hike_Percent as "Expected Salary Hike Percent"
+								Expected_Annual_CTC as "Expected Annual CTC"
+								Available_Joining_Date as "Available Joining Date"
+								Preferred_Interview_Time as "Preferred Interview Time"
+								Cover_Letter as "Cover Letter"
+								Resume_Upload as "Resume Upload"
+								Self_Introduction_Audio as "Self Introduction Audio"
+								Video_Resume as "Video Resume"
+								Candidate_Digital_Signature as "Candidate Digital Signature"
+								Background_Verification_Consent as "Background Verification Consent"
+								Application_ID as "Application ID"
+								Application_Submitted_On as "Application Submitted On"
+								QR_Code as "Candidate Tracking QR Code"
+								Company_Culture_Display as "Company Culture Display"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Delete 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								Candidate_Name as "Candidate Name"
+								Current_Address as "Current Address"
+								Contact_Number as "Contact Number"
+								Candidate_Photo as "Candidate Photo"
+								Email_Address as "Email Address"
+								LinkedIn_Profile as "LinkedIn Profile"
+								Portfolio_GitHub_URL as "Portfolio GitHub URL"
+								Department_Applied_For as "Department Applied For"
+								Employment_Type_Preferred as "Employment Type Preferred"
+								Years_Of_Experience as "Years Of Experience"
+								Key_Skills as "Key Skills"
+								Academic_CGPA as "Academic CGPA"
+								Willing_To_Relocate as "Willing To Relocate"
+								Referral_Employee_Lookup as "Referral Employee Lookup"
+								Current_Annual_CTC as "Current Annual CTC"
+								Expected_Salary_Hike_Percent as "Expected Salary Hike Percent"
+								Expected_Annual_CTC as "Expected Annual CTC"
+								Available_Joining_Date as "Available Joining Date"
+								Preferred_Interview_Time as "Preferred Interview Time"
+								Cover_Letter as "Cover Letter"
+								Resume_Upload as "Resume Upload"
+								Self_Introduction_Audio as "Self Introduction Audio"
+								Video_Resume as "Video Resume"
+								Candidate_Digital_Signature as "Candidate Digital Signature"
+								Background_Verification_Consent as "Background Verification Consent"
+								Application_ID as "Application ID"
+								Application_Submitted_On as "Application Submitted On"
+								QR_Code as "Candidate Tracking QR Code"
+								Company_Culture_Display as "Company Culture Display"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+							)
+						)
+				)
+			}
+		}
+		menu
+		{
+			space Space
+			{
+				displayname = "Space"
+				icon = "objects-spaceship"
+
+				section Job_Applications
+				{
+					displayname = "Job Applications"
+					icon = "users-2-a-time"
+					form  Job_Application_Form
+					{
+						icon = "design-2-form"
+					}
+					report All_Job_Applications
+					{
+						icon = "tech-desktop"
+					}
+					report Applications_Spreadsheet
+					{
+						icon = "design-2-form"
+					}
+				}
+				section ZC_App_Preferences
+				{
+					displayname = "App Preferences"
+					icon = "design-app"
+					systemcomponent
+					{
+						type = localization
+						displayname = "Language Selection"
+						icon = "education-language"
+					}
+					systemcomponent
+					{
+						type = connection
+						displayname = "Integrations"
+						icon = "tech-2-connection"
+					}
+				}
+				section ZC_Approvals
+				{
+					displayname = "Approvals"
+					icon = "ui-2-hourglass"
+					systemcomponent
+					{
+						type = approval
+						approval status = pending
+						displayname = "Pending Tasks"
+						icon = "ui-2-hourglass"
+					}
+					systemcomponent
+					{
+						type = approval
+						approval status = completed
+						displayname = "Completed Tasks"
+						icon = "design-todo"
+					}
+				}
+				section SharedAnalytics_Section
+				{
+					type = shared_user_report_section
+					displayname = "Reports"
+					icon = "business-chart-bar-33"
+				}
+				section Employees
+				{
+					displayname = "Employees"
+					icon = "users-single-04"
+					form  Employees
+					{
+						icon = "users-single-04"
+					}
+					report All_Employees
+					{
+						icon = "tech-desktop"
+					}
+				}
+				section Recruitment_Dashboard
+				{
+					displayname = "Recruitment Dashboard"
+					icon = "ui-1-dashboard-half"
+					page Recruitment_Dashboard
+					{
+						icon = "ui-1-dashboard-half"
+					}
+				}
+			}
+			preference
+			{
+				icon
+				{
+					style = outline
+				}
+			}
+		}
+		customize
+		{
+			font = "lato"
+			color options
+			{
+				color = "11"
+			}
+			logo
+			{
+				preference = "app_icon"
+				placement = "left"
+			}
+		}
+	}
+	phone
+	{
+		customize
+		{
+			layout = twocolumn
+			font = "default"
+			style = "3"
+			color options
+			{
+				color = chryslerpurple
+			}
+			logo
+			{
+				preference = "none"
+			}
+		}
+	}
+	tablet
+	{
+		customize
+		{
+			layout = slidingpane
+			font = "default"
+			style = "3"
+			color options
+			{
+				color = turquoise
+			}
+			logo
+			{
+				preference = "none"
+			}
+		}
+	}
+	translation
+{
+{"Language_Settings":{"LANGAGUE_WITH_LOGIN":"browser"}}
+}
+}
